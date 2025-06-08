@@ -1,0 +1,558 @@
+/* =============================================================================
+   ETIENNE TETSSOP - PORTFOLIO STYLES
+   Développeur Backend | Portfolio Professionnel
+   ============================================================================= */
+
+/* Variables CSS personnalisées */
+:root {
+  --primary: #0A2463;
+  --secondary: #3E92CC;
+  --accent: #D9E5D6;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --bg-light: #f9fafb;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --border-radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* STYLES ORIGINAUX - Repris exactement du HTML */
+.parallax-bg {
+  background: linear-gradient(135deg, #0A2463 0%, #3E92CC 100%);
+  background-attachment: fixed;
+}
+
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typing {
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #3E92CC;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #3E92CC }
+}
+
+/* AMÉLIORATIONS SUPPLÉMENTAIRES */
+
+/* Hero Section - Background parallax amélioré */
+.parallax-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Hero Avatar amélioré */
+.hero-avatar {
+  transition: var(--transition);
+}
+
+.hero-avatar:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Progress Bars */
+.progress-bar {
+  transition: width 1s ease-in-out;
+  border-radius: 4px;
+}
+
+/* Timeline Styles */
+.timeline {
+  background: linear-gradient(to bottom, var(--secondary), var(--primary));
+}
+
+.timeline-dot {
+  transition: var(--transition);
+}
+
+.timeline-dot:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(62, 146, 204, 0.4);
+}
+
+/* Navigation améliorée */
+nav {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+nav a {
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+/* Buttons améliorés */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(62, 146, 204, 0.3);
+}
+
+/* Skills Chart Container */
+#skillsChart {
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.1));
+}
+
+/* Contact Form amélioré */
+#contact-form input,
+#contact-form textarea {
+  transition: var(--transition);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(217, 229, 214, 0.3);
+}
+
+/* Social Links */
+.social-link {
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: var(--transition);
+  transform: translate(-50%, -50%);
+}
+
+.social-link:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile Menu */
+.mobile-dropdown {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar Personnalisé */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Loading States */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Focus States pour l'accessibilité */
+button:focus,
+input:focus,
+textarea:focus,
+a:focus {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+/* Cards améliorées */
+.card-hover:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Effets de glassmorphism */
+.glass-card {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius);
+}
+
+/* Notification system */
+.notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 20rem;
+  transition: all 0.3s ease;
+  transform: translateX(100%);
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification.success {
+  background: #10B981;
+  color: white;
+}
+
+.notification.error {
+  background: #EF4444;
+  color: white;
+}
+
+.notification.info {
+  background: #3B82F6;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .typing {
+    font-size: 1.25rem;
+    animation: typing 2.5s steps(30, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  .hero-avatar {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  .hero-avatar span {
+    font-size: 2rem !important;
+  }
+  
+  .card-hover {
+    margin-bottom: 1rem;
+  }
+  
+  .timeline {
+    left: 1rem;
+  }
+  
+  .timeline-dot {
+    left: 0.75rem;
+  }
+  
+  .ml-16 {
+    margin-left: 3rem !important;
+  }
+  
+  /* Navigation mobile */
+  nav .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Hero responsive */
+  #home h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  #home .text-7xl {
+    font-size: 3rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .text-5xl {
+    font-size: 2rem !important;
+  }
+  
+  .text-7xl {
+    font-size: 2.5rem !important;
+  }
+  
+  /* Sections padding */
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Cards stack better */
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* Dark Mode Support (pour futur) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-dark: #f9fafb;
+    --text-light: #d1d5db;
+    --bg-light: #111827;
+  }
+}
+
+/* Print Styles */
+@media print {
+  nav,
+  #contact,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    color: black !important;
+    background: white !important;
+  }
+  
+  .parallax-bg {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .card-hover {
+    box-shadow: none !important;
+    border: 1px solid #ccc;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --primary: #000;
+    --secondary: #333;
+    --accent: #666;
+  }
+  
+  .card-hover {
+    border: 2px solid #000;
+  }
+  
+  button, input, textarea {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+  
+  .typing {
+    animation: none;
+    border-right: none;
+  }
+}
+
+/* Améliorations performance */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Utilitaires additionnels */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-gradient {
+  border: 2px solid;
+  border-image: linear-gradient(135deg, var(--primary), var(--secondary)) 1;
+}
+
+/* Animation d'apparition progressive */
+.stagger-animation > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.stagger-animation.animate > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-animation.animate > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-animation.animate > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-animation.animate > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-animation.animate > *:nth-child(5) { transition-delay: 0.5s; }
+
+.stagger-animation.animate > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid var(--secondary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
