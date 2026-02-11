@@ -58,7 +58,7 @@ portfolio/
 │   │   └── styles.css         # Styles CSS personnalisés
 │   └── ⚡ js/
 │       └── app.js             # Logique JavaScript modulaire
-├── 📄 CV_Etienne_TETSSOP.pdf  # CV téléchargeable
+├── 📄 CV_Tetssop_Etienne_M1.pdf  # CV téléchargeable
 ├── 🖼️ favicon.ico             # Favicon du site
 ├── 🖼️ apple-touch-icon.png    # Icône iOS
 ├── 📚 README.md               # Documentation
@@ -332,7 +332,7 @@ npx responsive-screenshot http://localhost:8000
 #### **CV PDF ne se télécharge pas**
 ```bash
 # Vérifier que le fichier existe et est accessible
-curl -I https://votre-site.com/CV_Etienne_TETSSOP.pdf
+curl -I https://votre-site.com/CV_Tetssop_Etienne_M1.pdf
 ```
 
 #### **Animations ne fonctionnent pas sur mobile**
@@ -359,7 +359,7 @@ console.log(window.PortfolioApp.ChartManager);
 
 1. **Issues GitHub** : [Créer une issue](https://github.com/votre-repo/issues)
 2. **Documentation** : Relire ce README.md
-3. **Email** : juniorlekeu@gmail.com
+3. **Email** : etiennetetssop@gmail.com
 4. **LinkedIn** : [/in/junior-lekeu](https://linkedin.com/in/junior-lekeu)
 
 ### 🤝 **Contribution**

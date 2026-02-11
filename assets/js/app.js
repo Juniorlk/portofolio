@@ -84,8 +84,8 @@ new Chart(ctx, {
 // CV Download - PDF file
 document.getElementById('download-cv').addEventListener('click', () => {
     const cvLink = document.createElement('a');
-    cvLink.href = 'CV_Etienne_TETSSOP.pdf';
-    cvLink.download = 'CV_Etienne_TETSSOP.pdf';
+    cvLink.href = 'CV_Tetssop_Etienne_M1.pdf';
+    cvLink.download = 'CV_Tetssop_Etienne_M1.pdf';
     cvLink.click();
 });
 
